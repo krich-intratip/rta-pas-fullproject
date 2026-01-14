@@ -38,13 +38,13 @@ export default function Home() {
           <span>RTA.PAS</span>
         </h1>
         <p className="text-lg text-text-secondary mt-2">Royal Thai Army Project Assessment System</p>
-        <p className="text-sm text-text-secondary mt-1">ระบบประเมินโครงการวิจัยทางทหาร - กลั่นกรองโครงการ</p>
+        <p className="text-sm text-text-secondary mt-1">ระบบประเมินโครงการวิจัยทางทหาร - ประเมินปิดโครงการ</p>
         <div className="mt-4 flex flex-wrap justify-center gap-4 text-xs font-medium text-text-secondary opacity-80">
           <span className="bg-white/50 px-3 py-1 rounded-full border border-white/60 shadow-sm">
-            v3.0.0
+            v1.0.1
           </span>
           <span className="bg-white/50 px-3 py-1 rounded-full border border-white/60 shadow-sm">
-            📅 Update: 13 มกราคม 2568
+            📅 Update: 14 มกราคม 2569
           </span>
         </div>
       </div>

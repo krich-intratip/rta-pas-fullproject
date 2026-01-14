@@ -193,17 +193,17 @@ export default function PhaseGuide() {
                     </div>
                     {activeAccordion === 4 && (
                         <div className="p-6 animate-fade-in">
-                            <h3 className="font-bold text-lg text-primary-dark mb-4">เกณฑ์มาตรฐาน กวป.ทบ.</h3>
+                            <h3 className="font-bold text-lg text-primary-dark mb-4">เกณฑ์มาตรฐาน กวป.ทบ. (ปิดโครงการ)</h3>
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                                 <div className="bg-pastel-blue p-4 rounded-xl text-center">
-                                    <h4 className="font-semibold text-primary-dark mb-2">ความมีประโยชน์</h4>
-                                    <div className="text-3xl font-bold text-primary-blue">60</div>
-                                    <p className="text-xs text-slate-500">น้ำหนัก 60%</p>
+                                    <h4 className="font-semibold text-primary-dark mb-2">บรรลุวัตถุประสงค์</h4>
+                                    <div className="text-3xl font-bold text-primary-blue">50</div>
+                                    <p className="text-xs text-slate-500">น้ำหนัก 50%</p>
                                 </div>
                                 <div className="bg-pastel-green p-4 rounded-xl text-center">
-                                    <h4 className="font-semibold text-green-800 mb-2">ความเป็นไปได้</h4>
-                                    <div className="text-3xl font-bold text-green-600">20</div>
-                                    <p className="text-xs text-slate-500">น้ำหนัก 20%</p>
+                                    <h4 className="font-semibold text-green-800 mb-2">ความมีประโยชน์</h4>
+                                    <div className="text-3xl font-bold text-green-600">30</div>
+                                    <p className="text-xs text-slate-500">น้ำหนัก 30%</p>
                                 </div>
                                 <div className="bg-pastel-purple p-4 rounded-xl text-center">
                                     <h4 className="font-semibold text-purple-800 mb-2">ความถูกต้อง</h4>
@@ -218,12 +218,12 @@ export default function PhaseGuide() {
                             </div>
 
                             <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
-                                <h4 className="font-bold text-green-700 mb-2">เกณฑ์ผ่าน</h4>
+                                <h4 className="font-bold text-green-700 mb-2">เกณฑ์การพิจารณา</h4>
                                 <ul className="space-y-1 text-sm text-green-900">
-                                    <li><strong>81-100 คะแนน:</strong> ดีมาก (อนุมัติ)</li>
-                                    <li><strong>71-80 คะแนน:</strong> ดี (อนุมัติมีเงื่อนไข)</li>
-                                    <li><strong>50-70 คะแนน:</strong> ควรปรับปรุง (แก้ไขส่งใหม่)</li>
-                                    <li><strong>ต่ำกว่า 50:</strong> พอใช้ (ไม่อนุมัติ)</li>
+                                    <li><strong>81-100 คะแนน (ดีมาก):</strong> เห็นชอบให้ปิดโครงการ (อนุมัติ)</li>
+                                    <li><strong>71-80 คะแนน (ดี):</strong> เห็นชอบให้ปิดโครงการแบบมีเงื่อนไข (แก้ไขตามข้อแนะนำ)</li>
+                                    <li><strong>50-70 คะแนน (พอใช้):</strong> เห็นชอบให้ปิดโครงการ (รับทราบผลงาน)</li>
+                                    <li><strong>ต่ำกว่า 50 (ควรปรับปรุง):</strong> ไม่เห็นชอบให้ปิดโครงการ (ไม่อนุมัติ)</li>
                                 </ul>
                             </div>
                         </div>

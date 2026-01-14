@@ -37,8 +37,8 @@ export default function PhaseAbout() {
                     <div className="text-4xl mb-4 flex justify-center"><Cpu size={48} className="text-primary-dark" /></div>
                     <h3 className="font-bold text-lg text-primary-dark">ข้อมูลระบบ</h3>
                     <div className="text-sm text-text-secondary mt-3 space-y-1">
-                        <p><strong>Version:</strong> 2.1.0 (Next.js Edition)</p>
-                        <p><strong>Update:</strong> 12 มกราคม 2568</p>
+                        <p><strong>Version:</strong> 1.0.0 (Project Closure Edition)</p>
+                        <p><strong>Update:</strong> 14 มกราคม 2569</p>
                         <p><strong>License:</strong> Demo/Educational</p>
                         <p className="text-green-600 font-bold mt-2">✅ Active</p>
                     </div>

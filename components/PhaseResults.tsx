@@ -41,8 +41,8 @@ export default function PhaseResults({ results, onRestart }: PhaseResultsProps) 
     <p style="margin-top:15px;font-size:1.2em;">คะแนนเฉลี่ย: ${results.percentage}%</p></div>`;
 
         reportHTML += `<div class="card"><h3>&#128202; คะแนนเฉลี่ยแยกตามเกณฑ์</h3><div class="criteria-grid">
-    <div class="criteria-item" style="background:#E3F2FD;"><h4>ความมีประโยชน์</h4><div class="criteria-score">${results.scores.usefulness}</div><p>/60</p></div>
-    <div class="criteria-item" style="background:#E8F5E9;"><h4>ความเป็นไปได้</h4><div class="criteria-score" style="color:#2E7D32;">${results.scores.feasibility}</div><p>/20</p></div>
+    <div class="criteria-item" style="background:#E3F2FD;"><h4>การบรรลุวัตถุประสงค์</h4><div class="criteria-score">${results.scores.achievement}</div><p>/50</p></div>
+    <div class="criteria-item" style="background:#E8F5E9;"><h4>ความมีประโยชน์</h4><div class="criteria-score" style="color:#2E7D32;">${results.scores.usefulness}</div><p>/30</p></div>
     <div class="criteria-item" style="background:#F3E5F5;"><h4>ความถูกต้อง</h4><div class="criteria-score" style="color:#7B1FA2;">${results.scores.correctness}</div><p>/10</p></div>
     <div class="criteria-item" style="background:#FFF3E0;"><h4>ความคุ้มค่า</h4><div class="criteria-score" style="color:#E65100;">${results.scores.valueForMoney}</div><p>/10</p></div>
     </div></div>`;
@@ -56,13 +56,13 @@ export default function PhaseResults({ results, onRestart }: PhaseResultsProps) 
       <div style="background:white;padding:20px;border-radius:12px;margin-bottom:15px;">
       <h5 style="color:#1565C0;margin-bottom:15px;">&#128202; คะแนนและความเห็นตามเกณฑ์</h5>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;">
-      <div style="background:#E3F2FD;padding:10px;border-radius:8px;text-align:center;"><strong style="color:#1565C0;">ความมีประโยชน์</strong><div style="font-size:1.5em;font-weight:700;color:#1565C0;">${expert.scores?.usefulness || 0}</div><small>/60</small></div>
-      <div style="background:#E8F5E9;padding:10px;border-radius:8px;text-align:center;"><strong style="color:#2E7D32;">ความเป็นไปได้</strong><div style="font-size:1.5em;font-weight:700;color:#2E7D32;">${expert.scores?.feasibility || 0}</div><small>/20</small></div>
+      <div style="background:#E3F2FD;padding:10px;border-radius:8px;text-align:center;"><strong style="color:#1565C0;">การบรรลุวัตถุประสงค์</strong><div style="font-size:1.5em;font-weight:700;color:#1565C0;">${expert.scores?.achievement || 0}</div><small>/50</small></div>
+      <div style="background:#E8F5E9;padding:10px;border-radius:8px;text-align:center;"><strong style="color:#2E7D32;">ความมีประโยชน์</strong><div style="font-size:1.5em;font-weight:700;color:#2E7D32;">${expert.scores?.usefulness || 0}</div><small>/30</small></div>
       <div style="background:#F3E5F5;padding:10px;border-radius:8px;text-align:center;"><strong style="color:#7B1FA2;">ความถูกต้อง</strong><div style="font-size:1.5em;font-weight:700;color:#7B1FA2;">${expert.scores?.correctness || 0}</div><small>/10</small></div>
       <div style="background:#FFF3E0;padding:10px;border-radius:8px;text-align:center;"><strong style="color:#E65100;">ความคุ้มค่า</strong><div style="font-size:1.5em;font-weight:700;color:#E65100;">${expert.scores?.valueForMoney || 0}</div><small>/10</small></div>
       </div>
-      <div class="criteria-box" style="background:#E3F2FD;"><strong style="color:#1565C0;">&#128309; ความมีประโยชน์:</strong><p style="margin:5px 0 0 0;">${expert.criteriaComments?.usefulness || '-'}</p></div>
-      <div class="criteria-box" style="background:#E8F5E9;"><strong style="color:#2E7D32;">&#128994; ความเป็นไปได้:</strong><p style="margin:5px 0 0 0;">${expert.criteriaComments?.feasibility || '-'}</p></div>
+      <div class="criteria-box" style="background:#E3F2FD;"><strong style="color:#1565C0;">&#128309; การบรรลุวัตถุประสงค์:</strong><p style="margin:5px 0 0 0;">${expert.criteriaComments?.achievement || '-'}</p></div>
+      <div class="criteria-box" style="background:#E8F5E9;"><strong style="color:#2E7D32;">&#128994; ความมีประโยชน์:</strong><p style="margin:5px 0 0 0;">${expert.criteriaComments?.usefulness || '-'}</p></div>
       <div class="criteria-box" style="background:#F3E5F5;"><strong style="color:#7B1FA2;">&#128995; ความถูกต้อง:</strong><p style="margin:5px 0 0 0;">${expert.criteriaComments?.correctness || '-'}</p></div>
       <div class="criteria-box" style="background:#FFF3E0;"><strong style="color:#E65100;">&#128992; ความคุ้มค่า:</strong><p style="margin:5px 0 0 0;">${expert.criteriaComments?.valueForMoney || '-'}</p></div>
       </div>
@@ -131,14 +131,14 @@ export default function PhaseResults({ results, onRestart }: PhaseResultsProps) 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     {/* Items */}
                     <div className="bg-pastel-blue p-6 rounded-xl text-center">
-                        <div className="font-semibold text-primary-dark mb-2">ความมีประโยชน์</div>
-                        <div className="text-4xl font-bold text-primary-blue">{results.scores.usefulness}</div>
-                        <div className="text-xs text-slate-500">/60 คะแนน</div>
+                        <div className="font-semibold text-primary-dark mb-2">การบรรลุวัตถุประสงค์</div>
+                        <div className="text-4xl font-bold text-primary-blue">{results.scores.achievement}</div>
+                        <div className="text-xs text-slate-500">/50 คะแนน</div>
                     </div>
                     <div className="bg-pastel-green p-6 rounded-xl text-center">
-                        <div className="font-semibold text-green-800 mb-2">ความเป็นไปได้</div>
-                        <div className="text-4xl font-bold text-green-600">{results.scores.feasibility}</div>
-                        <div className="text-xs text-slate-500">/20 คะแนน</div>
+                        <div className="font-semibold text-green-800 mb-2">ความมีประโยชน์</div>
+                        <div className="text-4xl font-bold text-green-600">{results.scores.usefulness}</div>
+                        <div className="text-xs text-slate-500">/30 คะแนน</div>
                     </div>
                     <div className="bg-pastel-purple p-6 rounded-xl text-center">
                         <div className="font-semibold text-purple-800 mb-2">ความถูกต้อง</div>
@@ -204,12 +204,12 @@ export default function PhaseResults({ results, onRestart }: PhaseResultsProps) 
                                     {/* Criteria Comments */}
                                     <div className="space-y-3">
                                         <div className="p-3 bg-pastel-blue rounded-lg text-sm">
-                                            <strong className="text-primary-dark block mb-1"><Target size={16} className="inline mr-1" /> ความมีประโยชน์ ({expert.scores.usefulness}/60)</strong>
-                                            {expert.criteriaComments.usefulness}
+                                            <strong className="text-primary-dark block mb-1"><Target size={16} className="inline mr-1" /> การบรรลุวัตถุประสงค์ ({expert.scores.achievement}/50)</strong>
+                                            {expert.criteriaComments.achievement}
                                         </div>
                                         <div className="p-3 bg-pastel-green rounded-lg text-sm">
-                                            <strong className="text-green-800 block mb-1"><TrendingUp size={16} className="inline mr-1" /> ความเป็นไปได้ ({expert.scores.feasibility}/20)</strong>
-                                            {expert.criteriaComments.feasibility}
+                                            <strong className="text-green-800 block mb-1"><TrendingUp size={16} className="inline mr-1" /> ความมีประโยชน์ ({expert.scores.usefulness}/30)</strong>
+                                            {expert.criteriaComments.usefulness}
                                         </div>
                                         <div className="p-3 bg-pastel-purple rounded-lg text-sm">
                                             <strong className="text-purple-800 block mb-1"><ShieldCheck size={16} className="inline mr-1" /> ความถูกต้อง ({expert.scores.correctness}/10)</strong>

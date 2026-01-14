@@ -10,17 +10,17 @@ interface PhaseEvaluationProps {
 
 const expertProfiles = [
     {
-        name: 'ดร. ประชนัย ถิตยาโรจน์',
+        name: 'พล.ต.ดร. ถนัดเทคโน เก่งการทหาร',
         role: 'ผู้เชี่ยวชาญด้านเทคโนโลยีทหาร',
         perspective: 'มุ่งเน้นการวิเคราะห์ความสอดคล้องกับยุทธศาสตร์การพัฒนากองทัพ การประยุกต์ใช้เทคโนโลยีในภารกิจทหาร และความพร้อมของทีมวิจัย'
     },
     {
-        name: 'พล.ต.ดร. สมชัย รัตนโกศิน',
+        name: 'รศ.พ.อ.ปฏิบัติการ เชี่ยวชาญเลิศ',
         role: 'ผู้เชี่ยวชาญด้านการปฏิบัติการ',
         perspective: 'มุ่งเน้นความเป็นไปได้ในการนำไปใช้งานจริง ความสอดคล้องกับความต้องการของหน่วยปฏิบัติ และความพร้อมในการถ่ายทอดเทคโนโลยี'
     },
     {
-        name: 'ดร. กัญญา สุวรรณชัยศรี',
+        name: 'รศ.ดร.สรรสร้าง นวัตกรรมเด่น',
         role: 'ผู้เชี่ยวชาญด้านนวัตกรรม',
         perspective: 'มุ่งเน้นความเป็นนวัตกรรม ศักยภาพในการขยายผล และโอกาสในการพัฒนาต่อยอด'
     }
@@ -42,17 +42,21 @@ export default function PhaseEvaluation({ config, projectData, onComplete, onBac
         return `คุณคือ ${expert.name} (${expert.role})
 มุมมองในการประเมิน: ${expert.perspective}
 
-ประเมินข้อเสนอโครงการนี้ตามเกณฑ์ กวป.ทบ.:
+ประเมินผลการวิจัยฉบับสมบูรณ์ (Project Closure) โครงการนี้ตามเกณฑ์ กวป.ทบ.:
 ชื่อโครงการ: ${projectName || 'ไม่ระบุชื่อ'}
 
 เนื้อหา:
 ${pdfContent.substring(0, 12000)}
 
-เกณฑ์: 1.ความมีประโยชน์(60คะแนน) 2.ความเป็นไปได้(20คะแนน) 3.ความถูกต้อง(10คะแนน) 4.ความคุ้มค่า(10คะแนน)
+เกณฑ์การประเมิน (ปิดโครงการ):
+1. การบรรลุวัตถุประสงค์ (50 คะแนน) - ประเมินว่าผลงานวิจัยบรรลุตามวัตถุประสงค์ของโครงการได้เพียงใด
+2. ความมีประโยชน์ (30 คะแนน) - ผลงานนำไปใช้แก้ปัญหาหรือพัฒนาศักยภาพกองทัพบก ก่อให้เกิดคุณค่าเพิ่มทางเศรษฐกิจ/สังคม/ความมั่นคง
+3. ความถูกต้องของรายงานการวิจัย (10 คะแนน) - ความครบถ้วนของรูปเล่ม (คำนำ, บทคัดย่อ, ผลการวิเคราะห์, ภาคผนวก ฯลฯ)
+4. ความคุ้มค่า (10 คะแนน) - ความเหมาะสมของผลงานเทียบกับงบประมาณที่ใช้
 
 ⚠️ สำคัญมาก: ตอบเป็น JSON เท่านั้น ห้ามมีข้อความใดๆ ก่อนหรือหลัง JSON ห้ามใช้ \`\`\` เริ่มด้วย { ทันที:
 
-{"scores":{"usefulness":50,"feasibility":16,"correctness":8,"valueForMoney":8},"criteriaComments":{"usefulness":"ความเห็น","feasibility":"ความเห็น","correctness":"ความเห็น","valueForMoney":"ความเห็น"},"strengths":["จุดแข็ง1","จุดแข็ง2"],"weaknesses":["จุดอ่อน1","จุดอ่อน2"],"recommendations":"ข้อเสนอแนะ"}`;
+{"scores":{"achievement":45,"usefulness":25,"correctness":8,"valueForMoney":8},"criteriaComments":{"achievement":"ความเห็น","usefulness":"ความเห็น","correctness":"ความเห็น","valueForMoney":"ความเห็น"},"strengths":["จุดแข็ง1","จุดแข็ง2"],"weaknesses":["จุดอ่อน1","จุดอ่อน2"],"recommendations":"ข้อเสนอแนะ"}`;
     };
 
     const parseExpertResponse = (responseText: string) => {
@@ -77,10 +81,10 @@ ${pdfContent.substring(0, 12000)}
 
         // Fallback
         return {
-            scores: { usefulness: 45, feasibility: 15, correctness: 7, valueForMoney: 7 },
+            scores: { achievement: 0, usefulness: 0, correctness: 0, valueForMoney: 0 },
             criteriaComments: {
-                usefulness: 'ไม่สามารถแปลความเห็นจาก AI ได้ - กรุณาลองประเมินใหม่',
-                feasibility: 'ไม่สามารถแปลความเห็นจาก AI ได้',
+                achievement: 'ไม่สามารถแปลความเห็นจาก AI ได้ - กรุณาลองประเมินใหม่',
+                usefulness: 'ไม่สามารถแปลความเห็นจาก AI ได้',
                 correctness: 'ไม่สามารถแปลความเห็นจาก AI ได้',
                 valueForMoney: 'ไม่สามารถแปลความเห็นจาก AI ได้'
             },
@@ -108,8 +112,8 @@ ${pdfContent.substring(0, 12000)}
                 if (!result.success) throw new Error(result.error);
 
                 const parsed = parseExpertResponse(result.text);
-                const totalScore = (parsed.scores.usefulness || 0) +
-                    (parsed.scores.feasibility || 0) +
+                const totalScore = (parsed.scores.achievement || 0) +
+                    (parsed.scores.usefulness || 0) +
                     (parsed.scores.correctness || 0) +
                     (parsed.scores.valueForMoney || 0);
 
@@ -129,29 +133,30 @@ ${pdfContent.substring(0, 12000)}
             setStatus('กำลังสรุปผลการประเมิน...');
 
             // Aggregate Results
-            const avgScores = { usefulness: 0, feasibility: 0, correctness: 0, valueForMoney: 0 };
+            const avgScores = { achievement: 0, usefulness: 0, correctness: 0, valueForMoney: 0 };
             expertResults.forEach(exp => {
+                avgScores.achievement += exp.scores.achievement || 0;
                 avgScores.usefulness += exp.scores.usefulness || 0;
-                avgScores.feasibility += exp.scores.feasibility || 0;
                 avgScores.correctness += exp.scores.correctness || 0;
                 avgScores.valueForMoney += exp.scores.valueForMoney || 0;
             });
 
+            avgScores.achievement = Math.round(avgScores.achievement / 3);
             avgScores.usefulness = Math.round(avgScores.usefulness / 3);
-            avgScores.feasibility = Math.round(avgScores.feasibility / 3);
             avgScores.correctness = Math.round(avgScores.correctness / 3);
             avgScores.valueForMoney = Math.round(avgScores.valueForMoney / 3);
 
-            const totalAvg = avgScores.usefulness + avgScores.feasibility + avgScores.correctness + avgScores.valueForMoney;
-            const statusStr = totalAvg >= 81 ? 'ดีมาก' : totalAvg >= 71 ? 'ดี' : totalAvg >= 50 ? 'ควรปรับปรุง' : 'ไม่ผ่าน';
+            const totalAvg = avgScores.achievement + avgScores.usefulness + avgScores.correctness + avgScores.valueForMoney;
+            const statusStr = totalAvg >= 81 ? 'ดีมาก (อนุมัติ)' : totalAvg >= 71 ? 'ดี (อนุมัติมีเงื่อนไข)' : totalAvg >= 50 ? 'พอใช้ (อนุมัติ)' : 'ควรปรับปรุง (ไม่อนุมัติ)';
 
             const overallRecommendations = [
                 'ควรจัดตั้งคณะกรรมการกำกับดูแลโครงการ (Steering Committee) เพื่อติดตามความก้าวหน้า',
                 'ควรกำหนดจุดตรวจสอบ (Milestone) และรายงานความก้าวหน้าเป็นรายไตรมาส',
                 'ควรประสานงานกับหน่วยผู้ใช้งานอย่างใกล้ชิดตลอดระยะเวลาดำเนินโครงการ'
             ];
-            if (totalAvg >= 71) overallRecommendations.push('เสนอให้อนุมัติโครงการ โดยให้ปรับปรุงตามข้อเสนอแนะของผู้เชี่ยวชาญ');
-            else overallRecommendations.push('เสนอให้ปรับปรุงข้อเสนอโครงการตามข้อเสนอแนะ และส่งประเมินใหม่');
+            if (totalAvg >= 71) overallRecommendations.push('เสนอให้ปิดโครงการ และนำเข้าสู่กระบวนการรับรองผลงานวิจัย');
+            else if (totalAvg >= 50) overallRecommendations.push('เสนอให้ปิดโครงการ และรับทราบผลงานวิจัย');
+            else overallRecommendations.push('ไม่เห็นชอบให้ปิดโครงการ ควรปรับปรุงตามข้อเสนอแนะและประเมินใหม่');
 
             const finalResults = {
                 projectName: projectData.name,
