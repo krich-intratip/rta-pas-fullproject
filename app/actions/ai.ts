@@ -26,7 +26,7 @@ export async function testConnection(provider: string, apiKey: string, model: st
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${apiKey}`,
                     'HTTP-Referer': 'https://rta-pas.vercel.app', // Placeholder
-                    'X-Title': 'RTA.PAS API Test'
+                    'X-Title': 'RTA.PAS [Project Closure] API Test'
                 },
                 body: JSON.stringify({
                     model: model,
@@ -77,7 +77,7 @@ export async function generateContent(config: { provider: string; apiKey: string
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${config.apiKey}`,
                     'HTTP-Referer': 'https://rta-pas.vercel.app',
-                    'X-Title': 'RTA.PAS Assessment'
+                    'X-Title': 'RTA.PAS [Project Closure] Assessment'
                 },
                 body: JSON.stringify({
                     model: config.model,

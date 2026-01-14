@@ -82,7 +82,7 @@ export default function PhaseResults({ results, onRestart }: PhaseResultsProps) 
     ${(results.overallRecommendations || []).map((rec: string) => `<li style="margin-bottom:8px;">${rec}</li>`).join('')}
     </ol></div></div>
     <div style="text-align:center;margin-top:40px;padding:20px;background:#F3E5F5;border-radius:12px;">
-    <p>&#169; 2026 Dr. Krich Intratip</p><p>Royal Thai Army Project Assessment System (RTA.PAS)</p>
+    <p>&#169; 2026 Dr. Krich Intratip</p><p>Royal Thai Army Project Assessment System (RTA.PAS [Project Closure])</p>
     <p style="font-size:0.9em;color:#666;margin-top:10px;">สร้างโดย AI • รายงานนี้เป็นผลจากการประเมินอัตโนมัติ</p></div></body></html>`;
 
         const blob = new Blob([reportHTML], { type: 'text/html;charset=utf-8' });

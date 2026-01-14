@@ -35,7 +35,7 @@ export default function Home() {
       <div className="bg-gradient-to-br from-pastel-blue to-pastel-purple p-8 rounded-[20px] text-center mb-8 shadow-lg animate-fade-in-down">
         <h1 className="text-4xl font-bold mb-3 text-primary-blue flex items-center justify-center gap-4">
           <span className="text-5xl">🎖️</span>
-          <span>RTA.PAS</span>
+          <span>RTA.PAS [Project Closure]</span>
         </h1>
         <p className="text-lg text-text-secondary mt-2">Royal Thai Army Project Assessment System</p>
         <p className="text-sm text-text-secondary mt-1">ระบบประเมินโครงการวิจัยทางทหาร - ประเมินปิดโครงการ</p>
