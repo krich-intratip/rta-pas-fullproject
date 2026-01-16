@@ -26,7 +26,11 @@ export default function PhaseAbout() {
                     <div className="text-4xl mb-4 flex justify-center"><User size={48} className="text-primary-dark" /></div>
                     <h3 className="font-bold text-lg text-primary-dark">ผู้พัฒนา</h3>
                     <p className="font-semibold mt-3 text-lg">พล.ท.ดร.กริช อินทราทิพย์</p>
-                    <p className="text-sm text-text-secondary">Dr. Krich Intratip</p>
+                    <p className="text-sm text-text-secondary">
+                        <a href="https://portfolio-two-sepia-33.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-blue hover:underline transition-colors">
+                            Dr. Krich Intratip
+                        </a>
+                    </p>
                     <p className="mt-2 text-sm text-primary-blue underline">
                         <a href="mailto:krich.intratip@gmail.com">krich.intratip@gmail.com</a>
                     </p>
@@ -84,7 +88,9 @@ export default function PhaseAbout() {
 
             {/* Footer */}
             <div className="bg-gradient-to-br from-pastel-purple to-pastel-pink p-8 rounded-2xl text-center shadow-sm">
-                <p className="text-xl font-bold text-primary-dark">© 2026 Dr. Krich Intratip</p>
+                <p className="text-xl font-bold text-primary-dark">
+                    © 2026 <a href="https://portfolio-two-sepia-33.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-blue hover:underline transition-colors">Dr. Krich Intratip</a>
+                </p>
                 <p className="text-text-secondary">All Rights Reserved</p>
                 <p className="text-sm text-slate-500 mt-2">Developed for Royal Thai Army Research & Development</p>
             </div>
